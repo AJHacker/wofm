@@ -22,21 +22,17 @@ if (!pg_num_rows($result)) {
 }
 print "\n";
   
-  $sql =<<<EOF
-      CREATE TABLE MAIN
-      (ID INT PRIMARY KEY     NOT NULL,
-      NAME           TEXT    NOT NULL
-       );
+$sql =<<<EOF
+      INSERT INTO MAIN VALUES (0, 'Paul');
 EOF;
 
    $ret = pg_query($db, $sql);
    if(!$ret){
       echo pg_last_error($db);
    } else {
-      echo "Table created successfully\n";
+      echo "Records created successfully\n";
    }
    pg_close($db);
-  
-  
 ?>
+  
 </html>
