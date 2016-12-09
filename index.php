@@ -21,5 +21,23 @@ if (!pg_num_rows($result)) {
   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 }
 print "\n";
+  
+  $sql =<<<EOF
+      CREATE TABLE MAIN
+      (ID INT PRIMARY KEY     NOT NULL,
+      NAME           TEXT    NOT NULL,
+      AGE            INT     NOT NULL,
+       );
+EOF;
+
+   $ret = pg_query($db, $sql);
+   if(!$ret){
+      echo pg_last_error($db);
+   } else {
+      echo "Table created successfully\n";
+   }
+   pg_close($db);
+  
+  
 ?>
 </html>
