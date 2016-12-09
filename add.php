@@ -23,7 +23,7 @@ if (!pg_num_rows($result)) {
 print "\n";
   
   $sql =<<<EOF
-      INSERT INTO MAIN VALUES (0,"What is Life?");   
+      INSERT INTO MAIN VALUES (0,"What is Life?")  
   EOF;
    $ret = pg_query($db, $sql);
    if(!$ret){
