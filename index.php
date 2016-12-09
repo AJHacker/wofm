@@ -21,22 +21,5 @@ if (!pg_num_rows($result)) {
   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 }
 print "\n";
-  
-   $sql =<<<EOF
-      CREATE TABLE COMPANY
-      (ID INT PRIMARY KEY     NOT NULL,
-      NAME           TEXT    NOT NULL,
-      AGE            INT     NOT NULL,
-      ADDRESS        CHAR(50),
-      SALARY         REAL);
-EOF;
-
-   $ret = pg_query($pg_conn, $sql);
-   if(!$ret){
-      echo pg_last_error($pg_conn);
-   } else {
-      echo "Table created successfully\n";
-   }
-   pg_close($pg_conn);
 ?>
 </html>
