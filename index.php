@@ -26,7 +26,7 @@ print "\n";
       CREATE TABLE MAIN
       (ID INT PRIMARY KEY     NOT NULL,
       NAME           TEXT    NOT NULL,
-      AGE            INT     NOT NULL,
+      AGE            INT     NOT NULL
        );
 EOF;
 
