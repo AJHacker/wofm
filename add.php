@@ -20,7 +20,7 @@ $query="INSERT INTO MAIN VALUES (" . $id . ",'" . $name . "');";
 $result = pg_query($db, $query);
 echo $result;
    $sql ="
-      CREATE TABLE '" . $id . "'(
+      CREATE TABLE num" . $id . "(
       OPTION           TEXT    NOT NULL,
       VOTES            INT     NOT NULL);";
 $ret = pg_query($db, $sql);
