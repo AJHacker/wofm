@@ -1,6 +1,6 @@
 <html>
 
-<h1>Welcome!</h1>
+<center><h1>Welcome to wofm</h1><center>
 
 <?php
 # This function reads your DATABASE_URL config var and returns a connection
@@ -14,7 +14,6 @@ $db = pg_connect(pg_connection_string_from_database_url());
 # Now let's use the connection for something silly just to prove it works:
     
   
-   echo '<h1>TABLES:</h1>';
     $result1 = pg_query($db, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
     print "<pre>\n";
     if (!pg_num_rows($result1)) {
