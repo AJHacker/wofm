@@ -19,7 +19,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
            print_r("<center><h2>".$arr[0]['option']." - ".$arr[0]['votes']."</h2></center>");
        }
      }
-    }
+    
 
   
   
