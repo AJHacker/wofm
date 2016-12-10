@@ -19,7 +19,7 @@ $result = pg_query($db, $query);
 if ($result) {
   echo 'id added';
 } else {
-  echo'fuck';
+  echo'fuck1';
 };
  pg_close($db);
   
