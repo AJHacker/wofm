@@ -14,17 +14,21 @@ $db = pg_connect(pg_connection_string_from_database_url());
 # Now let's use the connection for something silly just to prove it works:
 $name=htmlspecialchars($_GET["name"]);
 $id=htmlspecialchars($_GET["id"]);
-$query="INSERT INTO MAIN VALUES (" . $id . ",'" . $name . "');";
-#$query="ALTER TABLE MAIN
- # ALTER COLUMN id TEXT;";
-$result = pg_query($db, $query);
-echo $result;
-   $sql ="
-      CREATE TABLE num" . $id . "(
-      OPTION           TEXT    NOT NULL,
-      VOTES            INT     NOT NULL);";
-$ret = pg_query($db, $sql);
-echo $ret;
+if (!$id or !$name) {
+  echo 'Enter an id'
+} else {
+  $query="INSERT INTO MAIN VALUES (" . $id . ",'" . $name . "');";
+  #$query="ALTER TABLE MAIN
+   # ALTER COLUMN id TEXT;";
+  $result = pg_query($db, $query);
+  echo $result;
+     $sql ="
+        CREATE TABLE num" . $id . "(
+        OPTION           TEXT    NOT NULL,
+        VOTES            INT     NOT NULL);";
+  $ret = pg_query($db, $sql);
+  echo $ret;
+}
 if (!$result) {
   echo pg_last_error();
   echo'fuck4';
