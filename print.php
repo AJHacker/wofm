@@ -5,8 +5,9 @@ function pg_connection_string_from_database_url() {
 }
 # Here we establish the connection. Yes, that's all.
 $db = pg_connect(pg_connection_string_from_database_url());
+$dbName = htmlspecialchars($_GET["db"])
 # Now let's use the connection for something silly just to prove it works:
-$result = pg_query($db, "SELECT * FROM MAIN");
+$result = pg_query($db, "SELECT * FROM".$dbName);
 $arr = pg_fetch_all($result);
 print_r(array_values($arr));
 
