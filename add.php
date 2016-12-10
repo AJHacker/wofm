@@ -17,10 +17,11 @@ $id=htmlspecialchars($_GET["id"]);
 $query="INSERT INTO MAIN ( id, name) VALUES (" . $id . "," . $name . ")";
 $result = pg_query($db, $query);
 echo $result;
-if ($result) {
-  echo 'id added';
+if (!$result) {
+  echo pg_last_error();
+  echo'fuck4';
 } else {
-  echo'fuck3';
+  echo 'id added';
 }
  pg_close($db);
   
