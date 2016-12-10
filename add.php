@@ -15,7 +15,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
 $name=htmlspecialchars($_GET["name"]);
 $id=htmlspecialchars($_GET["id"]);
 if (!$id or !$name) {
-  echo 'Enter an id'
+  echo 'Enter an id';
 } else {
   $query="INSERT INTO MAIN VALUES (" . $id . ",'" . $name . "');";
   #$query="ALTER TABLE MAIN
