@@ -28,7 +28,6 @@ $db = pg_connect(pg_connection_string_from_database_url());
          $result = pg_query($db, $sql);
          $arr = pg_fetch_all($result);
          print_r($arr[0]['name']);
-         print("- $row[0]\n");
        }
      }
     }
