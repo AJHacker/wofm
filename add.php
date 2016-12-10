@@ -14,7 +14,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
 # Now let's use the connection for something silly just to prove it works:
 $name=htmlspecialchars($_GET["name"]);
 $id=htmlspecialchars($_GET["id"]);
-$query="INSERT INTO MAIN VALUES(" . (int) $id . "," . $name . ")";
+$query="INSERT INTO MAIN VALUES(" . $id . "," . $name . ")";
 $result = pg_query($db, $query);
 if ($result) {
   echo 'id added';
