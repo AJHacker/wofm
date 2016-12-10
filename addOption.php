@@ -15,12 +15,12 @@ $db = pg_connect(pg_connection_string_from_database_url());
 $id=htmlspecialchars($_GET["id"]);
 $option=htmlspecialchars($_GET["option"]);
 if (!$id or !$option) {
-  echo "Enter an option and id"
+  echo "Enter an option and id";
 } else {
   $query="INSERT INTO num".$id. "VALUES(".$option.",0);";
-  $result=pg_query($db,$query)
+  $result=pg_query($db,$query);
   if ($result) {
-    echo $option." added"
+    echo $option." added";
   }
 
 pg_close($db);
