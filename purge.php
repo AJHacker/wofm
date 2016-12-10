@@ -17,10 +17,9 @@ $db = pg_connect(pg_connection_string_from_database_url());
     if (!pg_num_rows($result1)) {
       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
     } else {
-     print "Tables in your database:\n";
      while ($row = pg_fetch_row($result1)) {
-       if ($row[0]!='MAIN') {
-       pg_query($db, "DROP num" . $row[0] . ";");
+       if ($row[0]!="main") {
+       pg_query($db, "DROP " . $row[0] . ";");
        }
       }
       pg_query($db, "TRUNCATE MAIN;");
