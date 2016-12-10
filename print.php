@@ -9,5 +9,6 @@ $db = pg_connect(pg_connection_string_from_database_url());
 $result = pg_query($db, "SELECT * FROM MAIN'");
 $arr = pg_fetch_all($result);
 print_r( $arr);
+echo ($arr);
 
 ?>
