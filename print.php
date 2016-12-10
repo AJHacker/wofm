@@ -15,7 +15,7 @@ if (!pg_num_rows($result)) {
   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 }
 print "\n";
-  $result = pg_query($conn, "SELECT * FROM MAIN");
+  $result = pg_query($db, "SELECT * FROM MAIN");
   $d = pg_fetch_all ($result)
  echo $d
 ?>
