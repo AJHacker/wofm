@@ -29,8 +29,9 @@ echo $ret;
 if (!$result) {
   echo pg_last_error();
   echo'fuck4';
-} else {
-  echo 'id added';
+}
+if (!$ret) {
+  echo pg_last_error();
 }
  pg_close($db);
   
