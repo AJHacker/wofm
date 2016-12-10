@@ -14,13 +14,10 @@ $db = pg_connect(pg_connection_string_from_database_url());
 # Now let's use the connection for something silly just to prove it works:
 
 $sql =<<<EOF
-      SELECT ID, NAME 
-      FROM MAIN 
-      ORDER BY my_id DESC 
-      LIMIT 10
+      
 EOF;
 
-   $result = pg_query($db, $sql);
+   $result = pg_query($db, "SELECT ID, NAME FROM MAIN ORDER BY my_id DESC LIMIT 10");
    $arr = pg_fetch_all($result);
    print_r(array_values($arr));
    pg_close($db);
