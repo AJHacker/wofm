@@ -19,6 +19,13 @@ $query="INSERT INTO MAIN VALUES (" . $id . ",'" . $name . "');";
  # ALTER COLUMN id TEXT;";
 $result = pg_query($db, $query);
 echo $result;
+   $sql ="
+      CREATE TABLE" . $id . "
+      (ID INT PRIMARY KEY     NOT NULL,
+      OPTION           TEXT    NOT NULL,
+      VOTES            INT     NOT NULL);";
+$ret = pg_query($db, $sql);
+echo $ret;
 if (!$result) {
   echo pg_last_error();
   echo'fuck4';
