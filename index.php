@@ -13,11 +13,10 @@ function pg_connection_string_from_database_url() {
 $db = pg_connect(pg_connection_string_from_database_url());
 # Now let's use the connection for something silly just to prove it works:
 
-  
+   
    $result = pg_query($db, "SELECT ID, NAME FROM MAIN ORDER BY ID DESC LIMIT 1000");
    $arr = pg_fetch_all($result);
    print_r(array_values($arr));
-   echo '<br>'
    pg_close($db);
 ?>
   
