@@ -22,6 +22,7 @@ if (!$id or !$option) {
   if ($result) {
     echo $option." added";
   }
+}
 
 pg_close($db);
   
