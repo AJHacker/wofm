@@ -16,7 +16,7 @@ $name=htmlspecialchars($_GET["name"]);
 $id=htmlspecialchars($_GET["id"]);
 #$query="INSERT INTO MAIN ( id, name) VALUES (" . $id . "," . $name . ")";
 $query="ALTER TABLE MAIN
-  ALTER COLUMN id string";
+  ALTER COLUMN id TEXT";
 $result = pg_query($db, $query);
 echo $result;
 if (!$result) {
