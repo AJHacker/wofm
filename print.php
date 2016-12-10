@@ -15,6 +15,6 @@ if (!pg_num_rows($result)) {
   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 }
 print "\n";
-  
- echo pg_fetch_all ( resource $result )
+  $d = pg_fetch_all ($db)
+ echo $d
 ?>
