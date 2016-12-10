@@ -19,7 +19,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
     } else {
      while ($row = pg_fetch_row($result1)) {
        if ($row[0]!="main") {
-       pg_query($db, "DROP " . $row[0] . ";");
+       pg_query($db, "DROP TABLE" . $row[0] . ";");
        }
       }
       pg_query($db, "TRUNCATE MAIN;");
