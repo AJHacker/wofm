@@ -21,7 +21,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
     } else {
      print "Tables in your database:\n";
-     while ($row = pg_fetch_row($result1)) { print("- $row[0]\n"); }
+     while ($row = pg_fetch_row($result1)) { if($row[0] != "main"){print("- $row[0]\n");} }
     }
 
   
