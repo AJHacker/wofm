@@ -27,7 +27,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
          $sql="SELECT name FROM MAIN WHERE id=".$tableNo;
          $result = pg_query($db, $sql);
          $arr = pg_fetch_all($result);
-         print_r($arr);
+         print_r($arr[0]);
          print("- $row[0]\n");
        }
      }
