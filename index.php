@@ -12,10 +12,19 @@ function pg_connection_string_from_database_url() {
 # Here we establish the connection. Yes, that's all.
 $db = pg_connect(pg_connection_string_from_database_url());
 # Now let's use the connection for something silly just to prove it works:
-    echo '<h1>TABLES:</h1>';
-   $result1 = pg_query($db, "SELECT table_name FROM information_schema.tables WHERE table_schema='public'");
-   $arr1 = pg_fetch_all($result1);
-   print_r(array_values($arr1));
+    
+  
+   echo '<h1>TABLES:</h1>';
+    $result1 = pg_query($db, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
+    print "<pre>\n";
+    if (!pg_num_rows($result1)) {
+      print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
+    } else {
+     print "Tables in your database:\n";
+     while ($row = pg_fetch_row($result1)) { print("- $row[0]\n"); }
+    }
+
+  
   
    echo '<h1>MAIN:</h1>';
 
