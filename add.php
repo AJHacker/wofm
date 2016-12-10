@@ -16,25 +16,12 @@ $name=htmlspecialchars($_GET["name"]);
 $id=htmlspecialchars($_GET["id"]);
 $query="INSERT INTO MAIN VALUES(" . (int) $id . "," . $name . ")";
 $result = pg_query($db, $query);
-print "<pre>\n";
-if (!pg_num_rows($result)) {
-  print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
+if ($result) {
+  echo 'id added';
 } else {
-  print "Tables in your database:\n";
-  while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
-}
-print "\n";
-  
-  $sql =<<<EOF
-      INSERT INTO MAIN VALUES (0,"What is Life?")  
-  EOF;
-   $ret = pg_query($db, $sql);
-   if(!$ret){
-      echo pg_last_error($db);
-   } else {
-      echo "Entered!\n";
-   }
-   pg_close($db);
+  echo'fuck';
+};
+ pg_close($db);
   
   
 ?>
