@@ -8,7 +8,6 @@ $db = pg_connect(pg_connection_string_from_database_url());
 # Now let's use the connection for something silly just to prove it works:
 $result = pg_query($db, "SELECT * FROM MAIN'");
 $arr = pg_fetch_all($result);
-print_r( $arr);
-echo ($arr);
+print_r(array_values($arr));
 
 ?>
