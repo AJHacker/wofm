@@ -17,7 +17,7 @@ $sql =<<<EOF
       
 EOF;
 
-   $result = pg_query($db, "SELECT ID, NAME FROM MAIN ORDER BY ID DESC LIMIT 10");
+   $result = pg_query($db, "SELECT ID, NAME FROM MAIN ORDER BY ID DESC LIMIT 1000");
    $arr = pg_fetch_all($result);
    print_r(array_values($arr));
    pg_close($db);
