@@ -19,9 +19,7 @@ if (!$id or !$option) {
 } else {
   $query="INSERT INTO num".$id. "VALUES(".$option.",0);";
   $result=pg_query($db,$query);
-  if ($result) {
-    echo $option." added";
-  }
+  echo $option." added";
 }
 
 pg_close($db);
