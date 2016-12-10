@@ -25,9 +25,9 @@ $db = pg_connect(pg_connection_string_from_database_url());
        if($row[0] != "main"){
          $tableNo=substr($row[0],3);
          $sql="SELECT name FROM MAIN WHERE id=".$tableNo;
-         $result = pg_query($db, "SELECT ID, NAME FROM MAIN ORDER BY ID DESC LIMIT 1000");
+         $result = pg_query($db, $sql);
          $arr = pg_fetch_all($result);
-         print_r($arr[0][1]);
+         print_r($arr);
          print("- $row[0]\n");
        }
      }
