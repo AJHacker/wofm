@@ -31,7 +31,7 @@ if($category)
                              $sql="SELECT name FROM MAIN WHERE id=".$tableNo." ORDER BY ID";
                              $result = pg_query($db, $sql);
                              $arr = pg_fetch_all($result);
-                             print_r("<center><h2><a href='/view.php?id=".$tableNo."'>".$arr[0]['name']."</a></h2></center>");
+                             print_r("<center><h2><a href='/view.php?id=".$tableNo."'>".$arr[0]['name']."</a></h2><br></center>");
                            }
                          }
                         }
