@@ -4,7 +4,7 @@
 
 <?php
   
-$name = $_POST['name'];
+$name = $_POST['question'];
 $id = $_POST['id'];
 $group = $_POST['group'];
 if ($name and $id and $group) {
