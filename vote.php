@@ -24,7 +24,7 @@ $city = $geo["geoplugin_city"];
   
 # vote adding
 if ($city=='Pittsburgh') {  
-  echo 'in pittsburgh\n';
+  echo 'in pittsburgh<br>';
   $tableNo=htmlspecialchars($_GET["id"]);
   $option=htmlspecialchars($_GET["option"]);
   try {
@@ -32,7 +32,7 @@ if ($city=='Pittsburgh') {
     $query="INSERT INTO USERS VALUES ( '".$ip."', ".$array.");";
     $result=pg_query($db,$query);
   } catch (Exception $e) {
-    echo 'user already in table\n';
+    echo 'user already in table<br>';
     $query="SELECT VOTED FROM USERS WHERE IP='".$ip."'";
     $result=pg_query($db,$query);
     $arr=pg_fetch_all($result);
