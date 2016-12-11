@@ -11,8 +11,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
 
 $sql="CREATE TABLE USERS (
   IP TEXT PRIMARY KEY,
-  VOTED INTEGER[]);";
-$sql="DROP TABLE USERS";
+  VOTED TEXT);";
 $result=pg_query($db,$sql);
 echo pg_last_error();
 
