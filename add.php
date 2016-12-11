@@ -1,5 +1,7 @@
 <html>
-
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <h1>Add Items!</h1>
 
 <?php
