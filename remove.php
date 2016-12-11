@@ -1,6 +1,8 @@
 <html>
 
-<h1>Add Options!</h1>
+<h1>Remove Questions or Options</h1>
+  <h2>Enter a Question ID to remove a question</h2>
+  <h2>Enter a Question ID and Option to remove a specific option</h2>
 
 <?php
 $option = $_POST['option'];
@@ -37,3 +39,6 @@ if ($id) {
 
   <?}
 }
+
+?>
+</html>
