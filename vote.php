@@ -39,7 +39,7 @@ if ($city=='Pittsburgh') {
     $array=$arr[0]['voted'];
     echo pg_last_error();
   }
-  if in_array($tableNo,$array) {
+  if (in_array($tableNo,$array)) {
     echo 'you already voted! fuck you!';
   } else {
     $sql = "SELECT VOTES FROM num".$tableNo." WHERE OPTION='".$option."'";
