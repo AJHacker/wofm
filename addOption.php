@@ -22,21 +22,22 @@ if ($id and $option) {
     $query="INSERT INTO num".$id. " VALUES ( '".$option."', 0);";
     $result=pg_query($db,$query);
     echo pg_last_error();
-    echo $option." added";
   }
 
   pg_close($db);
-} else {
-  if(isset($_POST))
-  {?>
+}
+if(isset($_POST))
+{?>
 
-    <form method="POST" action="addOption.php">
-    Option <input type="text" name="option"></input><br/>
-    ID <input type="text" name="id"></input><br/>
-    <input type="submit" name="submit" value="Add Option"></input>
-    </form>
+  <form method="POST" action="addOption.php">
+  Option <input type="text" name="option"></input><br/>
+  ID <input type="text" name="id"></input><br/>
+  <input type="submit" name="submit" value="Add Option"></input>
+  </form>
 
-  <?}
+<?}
+if ($id and $option) {
+  echo "<h2>".$option." Added</h2>";
 }
   
   
