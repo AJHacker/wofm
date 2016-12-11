@@ -9,19 +9,16 @@ h1{
   font-size:5em;
  
 }
-h2{
- color:#f3f3f3;
-  
-}
+
 a:link, a:visited {
-    background-color: #f44336;
+    /*background-color: #f44336;*/
     color: white;
-    padding: 14px 25px;
+    padding: 10% 20%;
     text-align: center; 
     text-decoration: none;
     display: inline-block;
 }
 
 a:hover, a:active {
-    background-color: red;
+    background-color: #0fb8ad;
 }
