@@ -9,7 +9,9 @@ function pg_connection_string_from_database_url() {
 }
 $db = pg_connect(pg_connection_string_from_database_url());
 
-
+$table=htmlspecialchars($_GET["table"]);
+if (substr($table, 0, 3)=='num') {
+}
 
 
 pg_close($db);
