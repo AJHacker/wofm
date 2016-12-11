@@ -24,8 +24,9 @@ if ($id) {
     $sql="DROP TABLE num".$id;
     $result=pg_query($db,$sql);
   }
+  echo "Removed"
   pg_close($db);
-} else {
+}
   if(isset($_POST)) {
   ?>
 
