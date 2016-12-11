@@ -1,6 +1,6 @@
 <html>
 
-<center><h1>Welcome to wofm</h1><center>
+<center><h1>CMU Questions:</h1><center>
 
 <?php
 # This function reads your DATABASE_URL config var and returns a connection
