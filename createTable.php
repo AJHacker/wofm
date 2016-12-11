@@ -9,10 +9,12 @@ function pg_connection_string_from_database_url() {
 # Here we establish the connection. Yes, that's all.
 $db = pg_connect(pg_connection_string_from_database_url());
 
+# main | id (int) | question name (text)
 $main="CREATE TABLE MAIN (
   ID INT PRIMARY KEY,
   NAME TEXT);";
 $result=pg_query($db,$main);
+# users | ip address (text) | questions voted on (text)
 $users="CREATE TABLE USERS (
   IP TEXT PRIMARY KEY,
   VOTED TEXT);";
