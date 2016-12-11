@@ -20,7 +20,7 @@ function pg_connection_string_from_database_url() {
     $counter = 0;
     foreach($row as $option) {
       if($counter % 2 ==0){#OPTION
-          echo "<button style = 'display: inline;' onclick='window.location.href="."/vote.php?id=".$id."&option="."$option".";'>Vote</button>";
+          echo "<a href=/vote.php?id=".$id."&option="."$option".">Vote</a>";
           echo '<h1>';
           echo $option; 
           echo '';
