@@ -46,11 +46,11 @@ else
 {
     if(isset($_POST))
     {?>
-             <h1>
-               <a href = 'index.php?category=00'>Food</a>
-               <a href = 'index.php?category=01'>Places</a>
-               <a href = 'index.php?category=02'>People</a>
-             </h1> 
+             <h2>
+               <a href = 'index.php?category=00'>Food</a><br>
+               <a href = 'index.php?category=01'>Places</a><br>
+               <a href = 'index.php?category=02'>People</a><br>
+             </h2> 
             
     <?}
 }
