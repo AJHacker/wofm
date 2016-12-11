@@ -32,7 +32,7 @@ if ($id) {
     <form method="POST" action="remove.php">
     ID <input type="text" name="id"></input><br/>
     Option <input type="text" name="option"></input><br/>
-    <input type="submit" name="submit" value="Add Option"></input>
+    <input type="submit" name="submit" value="Remove Option"></input>
     </form>
 
   <?php
