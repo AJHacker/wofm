@@ -43,7 +43,7 @@ if ($name and $id and $group) {
     Question <input type="text" name="Question"></input><br/>
     ID <input type="text" name="ID"></input><br/>
     Group <input type="text" name="Group"></input><br/>
-    <input type="submit" name="submit" value="Purge"></input>
+    <input type="submit" name="submit" value="Add"></input>
     </form>
 
     <p>Group Numbers</p>
