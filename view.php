@@ -14,9 +14,8 @@ function pg_connection_string_from_database_url() {
     print "<pre>\n";
 
    while ($row = pg_fetch_row($result)) {
-    foreach($row as $option,$votes) {
+    foreach($row as $option) {
       echo $option;
-      echo $votes;
       echo '</br>';
        # echo '<h1>' . $field[0] . '   -    ' . $field[1] . '</h1></br>';
     }
