@@ -15,7 +15,8 @@ function pg_connection_string_from_database_url() {
 
    while ($row = pg_fetch_row($result)) {
     foreach($row as $field) {
-        echo '<h1>' . $field[0] . '   -    ' . $field[1] . '</h1></br>';
+      echo $field
+       # echo '<h1>' . $field[0] . '   -    ' . $field[1] . '</h1></br>';
     }
 }
 //     print $result1;
