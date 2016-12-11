@@ -1,8 +1,14 @@
 <html>
 
 <h1>Welcome!</h1>
-
 <?php
+$user = $_POST['user'];
+$pass = $_POST['pass'];
+
+if($user == "admin"
+&& $pass == "admin")
+{
+        
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. Put this in your app.
 function pg_connection_string_from_database_url() {
@@ -29,6 +35,20 @@ $db = pg_connect(pg_connection_string_from_database_url());
  #  $arr = pg_fetch_all($result);
   # print_r(array_values($arr));
    pg_close($db);
+}
+else
+{
+    if(isset($_POST))
+    {?>
+
+            <form method="POST" action="secure.php">
+            User <input type="text" name="user"></input><br/>
+            Pass <input type="password" name="pass"></input><br/>
+            <input type="submit" name="submit" value="Go"></input>
+            </form>
+    <?}
+}
+
 ?>
   
 </html>
