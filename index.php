@@ -25,7 +25,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
          $sql="SELECT name FROM MAIN WHERE id=".$tableNo;
          $result = pg_query($db, $sql);
          $arr = pg_fetch_all($result);
-         print_r("<center><h1>".$arr[0]['name']."</h1></center>");
+         print_r("<center><h1><a href='/view.php?id=".$tableNo."'>".$arr[0]['name']."</a></h1></center>");
        }
      }
     }
