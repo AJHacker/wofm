@@ -28,19 +28,19 @@ if ($city=='Pittsburgh') {
   $tableNo=htmlspecialchars($_GET["id"]);
   $option=htmlspecialchars($_GET["option"]);
   try {
-    $array=[];
-    $query="INSERT INTO USERS VALUES ( '".$ip."', ".$array.");";
+    $voted="";
+    $query="INSERT INTO USERS VALUES ( '".$ip."', '".$voted."');";
     $result=pg_query($db,$query);
   } catch (Exception $e) {
     echo 'user already in table<br>';
     $query="SELECT VOTED FROM USERS WHERE IP='".$ip."'";
     $result=pg_query($db,$query);
     $arr=pg_fetch_all($result);
-    $array=$arr[0]['voted'];
+    $voted=$arr[0]['voted'];
 
     echo pg_last_error();
   }
-  if (in_array($tableNo,$array)) {
+  if (in_array($tableNo,explode(" ",$voted))) {
     echo 'you already voted! fuck you!';
   } else {
     $sql = "SELECT VOTES FROM num".$tableNo." WHERE OPTION='".$option."'";
@@ -53,9 +53,9 @@ if ($city=='Pittsburgh') {
     $sql="UPDATE num".$tableNo." SET VOTES=".$votes." WHERE OPTION='".$option."'";
     $result=pg_query($db,$sql);
     
-    echo $array;
-    array_push($array, $tableNo);
-    $query="UPDATE USERS SET VOTED=".$array." WHERE IP='".$ip."'";
+    echo $voted;
+    $voted.=" ".$option
+    $query="UPDATE USERS SET VOTED='".$voted."' WHERE IP='".$ip."'";
     $result=pg_query($db,$query);
     echo pg_last_error();
   }
