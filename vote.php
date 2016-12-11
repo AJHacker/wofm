@@ -9,6 +9,14 @@ function pg_connection_string_from_database_url() {
 # Here we establish the connection. Yes, that's all.
 $db = pg_connect(pg_connection_string_from_database_url());
 
+# user ip checking
+$ip=getenv('REMOTE_ADDR');
+$geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
+$country = $geo["geoplugin_countryName"];
+$city = $geo["geoplugin_city"];
+echo $city
+  
+# vote adding
 $tableNo=htmlspecialchars($_GET["id"]);
 $option=htmlspecialchars($_GET["option"]);
 $sql = "SELECT VOTES FROM num".$tableNo." WHERE OPTION='".$option."'";
