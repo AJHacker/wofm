@@ -13,7 +13,7 @@ function pg_connection_string_from_database_url() {
     $result = pg_query($db, "SELECT * FROM num".$id);
     print "<pre>\n";
 
-   while ($row = pg_fetch_array($results)) {
+   while ($row = pg_fetch_array($result)) {
     echo '<tr>';
     foreach($row as $field) {
         echo '<td>' . htmlspecialchars($field) . '</td>';
