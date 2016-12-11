@@ -17,13 +17,11 @@ if ($id) {
   }
   # Here we establish the connection. Yes, that's all.
   $db = pg_connect(pg_connection_string_from_database_url());
-  if (!$id or !$option) {
-    echo "Enter an option and id";
-  } elseif ($option) {
+  if ($option) {
     $sql="DELETE FROM num".$id." WHERE OPTION='".$option."'";
     $result=pg_query($db,$sql);
   } else {
-    $sql="DROP TABLE num".$id.";
+    $sql="DROP TABLE num".$id;
     $result=pg_query($db,$sql);
   }
   pg_close($db);
