@@ -9,7 +9,7 @@ function pg_connection_string_from_database_url() {
 
     $db = pg_connect(pg_connection_string_from_database_url());
     $id = htmlspecialchars($_GET["id"]);
-    $sql="SELECT name FROM MAIN WHERE id=".$tableNo;
+    $sql="SELECT name FROM MAIN WHERE id=".$id;
     $result=pg_query($db,$sql);
     $arr = pg_fetch_all($result);
     print_r("<center><h1>".$arr."</h1></center>");
