@@ -84,14 +84,14 @@ $choice = htmlspecialchars($_GET["option"]);
     foreach($row as $option) {
       if($counter % 2 ==0){#OPTION
           $fixedOption=htmlspecialchars($option);
-          echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'>Vote</a>";
-          echo '<h1>';
-          echo $option; 
+//           echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'>Vote</a>";
+          echo '<h2>';
+          echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'>".$option."</a>"; 
           echo '';
       }else{#VOTES
           echo '    -    ';
           echo $option; 
-          echo '</h1></br>';
+          echo '</h2></br>';
 
 
       }
