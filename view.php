@@ -14,7 +14,7 @@ function pg_connection_string_from_database_url() {
     $arr = pg_fetch_all($result);
     print_r("<center><h1>".$arr[0]['name']."</h1></center>");
   
-    $result = pg_query($db, "SELECT * FROM num".$id . "ORDER BY VOTES DESC;");
+    $result = pg_query($db, "SELECT * FROM num".$id . " ORDER BY VOTES DESC;");
     print "<pre>\n";
   echo '<h1>';
    while ($row = pg_fetch_row($result)) {
