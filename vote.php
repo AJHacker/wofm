@@ -37,6 +37,7 @@ if ($city=='Pittsburgh') {
     $result=pg_query($db,$query);
     $arr=pg_fetch_all($result);
     $array=$arr[0]['voted'];
+    echo $array;
     echo pg_last_error();
   }
   if (in_array($tableNo,$array)) {
