@@ -31,7 +31,7 @@ if ($city=='Pittsburgh') {
     $array=[];
     $query="INSERT INTO USERS VALUES ( '".$ip."', ".$array.");";
     $result=pg_query($db,$query);
-  } catch {
+  } catch (Exception $e) {
     echo 'user already in table\n';
     $query="SELECT VOTED FROM USERS WHERE IP='".$ip."'";
     $result=pg_query($db,$query);
