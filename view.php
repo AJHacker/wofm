@@ -8,9 +8,10 @@ function pg_connection_string_from_database_url() {
 }
 
 $db = pg_connect(pg_connection_string_from_database_url());
+$toPrint=""
   
 function vote ($tableNo, $option) {
-  global $db;
+  global $db, $toPrint;
   # user ip checking
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
       $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -33,14 +34,14 @@ function vote ($tableNo, $option) {
     $query="INSERT INTO USERS VALUES ( '".$ip."', '".$voted."');";
     $result=pg_query($db,$query);
     if (pg_last_error()) {
-      echo 'user already in table<br>';
+      $toPrint.= 'User already in table<br>';
       $query="SELECT VOTED FROM USERS WHERE IP='".$ip."'";
       $result=pg_query($db,$query);
       $arr=pg_fetch_all($result);
       $voted=$arr[0]['voted'];
     }
     if (in_array($tableNo,explode(" ",$voted))) {
-      echo 'you already voted! fuck you!';
+      $toPrint.= 'You already voted! fuck you!<br>';
     } else {
       $sql = "SELECT VOTES FROM num".$tableNo." WHERE OPTION='".$option."'";
       $result = pg_query($sql);
@@ -48,12 +49,10 @@ function vote ($tableNo, $option) {
       $votes=$value[0]['votes'];
       ++$votes;
       echo pg_last_error();
-      echo $votes;
       $sql="UPDATE num".$tableNo." SET VOTES=".$votes." WHERE OPTION='".$option."'";
       $result=pg_query($db,$sql);
       echo pg_last_error();
 
-      echo $voted;
       $voted.=" ".$tableNo;
       $query="UPDATE USERS SET VOTED='".$voted."' WHERE IP='".$ip."'";
       $result=pg_query($db,$query);
@@ -61,7 +60,7 @@ function vote ($tableNo, $option) {
     }
     echo pg_last_error();
   } else {
-    echo "fuck you. you ain't in pittsburgh, bitch";
+    $toPrint.= "fuck you. you ain't in pittsburgh, bitch<br>";
   }
 
 }
@@ -99,7 +98,7 @@ $choice = htmlspecialchars($_GET["option"]);
     }
 }
   echo pg_last_error();
-
+  echo $toPrint;
    pg_close($db);
 ?>
   
