@@ -16,7 +16,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
     } else {
      while ($row = pg_fetch_row($result1)) { 
-           print_r("<center><h2>".$arr[0]['option']." - ".$arr[0]['votes']."</h2></center>");
+           print_r("<center><h2>".$row[0]['option']." - ".$row[0]['votes']."</h2></center>");
        }
      }
     
