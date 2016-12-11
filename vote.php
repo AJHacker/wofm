@@ -16,11 +16,13 @@ $result = pg_query($sql);
 $value = pg_fetch_all($result);
 $votes=$value[0]['votes'];
 ++$votes;
+echo pg_last_error();
+echo $votes;
 $sql="UPDATE num".$tableNo." 
     SET VOTES=".$votes.",
     WHERE OPTION='".$option."';";
 $result=pg_query($db,$sql);
-
+echo pg_last_error();
 
 pg_close($db);
   
