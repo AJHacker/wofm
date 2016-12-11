@@ -40,9 +40,9 @@ if ($name and $id and $group) {
   {?>
 
     <form method="POST" action="add.php">
-    Question <input type="text" name="Question"></input><br/>
-    ID <input type="text" name="ID"></input><br/>
-    Group <input type="text" name="Group"></input><br/>
+    Question <input type="text" name="question"></input><br/>
+    ID <input type="text" name="id"></input><br/>
+    Group <input type="text" name="group"></input><br/>
     <input type="submit" name="submit" value="Add"></input>
     </form>
 
