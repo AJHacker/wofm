@@ -11,7 +11,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
 
 $tableNo=htmlspecialchars($_GET["id"]);
 $option=htmlspecialchars($_GET["option"]);
-$sql = "SELECT VOTES FROM num".$tableNo." WHERE OPTION='".$option."';";
+$sql = "SELECT VOTES FROM num".$tableNo." WHERE OPTION='".$option."'";
 $result = pg_query($sql);
 $value = pg_fetch_all($result);
 $votes=$value[0]['votes'];
