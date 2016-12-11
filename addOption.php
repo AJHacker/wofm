@@ -30,8 +30,8 @@ if(isset($_POST))
 {?>
 
   <form method="POST" action="addOption.php">
-  Option <input type="text" name="option"></input><br/>
   ID <input type="text" name="id"></input><br/>
+  Option <input type="text" name="option"></input><br/>
   <input type="submit" name="submit" value="Add Option"></input>
   </form>
 
