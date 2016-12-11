@@ -7,8 +7,69 @@ function pg_connection_string_from_database_url() {
   return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
 }
 
-    $db = pg_connect(pg_connection_string_from_database_url());
-    $id = htmlspecialchars($_GET["id"]);
+$db = pg_connect(pg_connection_string_from_database_url());
+  
+function vote ($tableNo, $option) {
+
+  # user ip checking
+  if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+      $ip = $_SERVER['HTTP_CLIENT_IP'];
+  } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+      $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  } else {
+      $ip = $_SERVER['REMOTE_ADDR'];
+  }
+  $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$ip"));
+  $country = $geo["geoplugin_countryName"];
+  $city = $geo["geoplugin_city"];
+
+
+  # vote adding
+  if ($city=='Pittsburgh') {  
+    echo 'in pittsburgh<br>';
+    $tableNo=htmlspecialchars($_GET["id"]);
+    $option=htmlspecialchars($_GET["option"]);
+    $voted="";
+    $query="INSERT INTO USERS VALUES ( '".$ip."', '".$voted."');";
+    $result=pg_query($db,$query);
+    if (pg_last_error()) {
+      echo 'user already in table<br>';
+      $query="SELECT VOTED FROM USERS WHERE IP='".$ip."'";
+      $result=pg_query($db,$query);
+      $arr=pg_fetch_all($result);
+      $voted=$arr[0]['voted'];
+    }
+    if (in_array($tableNo,explode(" ",$voted))) {
+      echo 'you already voted! fuck you!';
+    } else {
+      $sql = "SELECT VOTES FROM num".$tableNo." WHERE OPTION='".$option."'";
+      $result = pg_query($sql);
+      $value = pg_fetch_all($result);
+      $votes=$value[0]['votes'];
+      ++$votes;
+      echo pg_last_error();
+      echo $votes;
+      $sql="UPDATE num".$tableNo." SET VOTES=".$votes." WHERE OPTION='".$option."'";
+      $result=pg_query($db,$sql);
+
+      echo $voted;
+      $voted.=" ".$tableNo;
+      $query="UPDATE USERS SET VOTED='".$voted."' WHERE IP='".$ip."'";
+      $result=pg_query($db,$query);
+      echo pg_last_error();
+    }
+    echo pg_last_error();
+  } else {
+    echo "fuck you. you ain't in pittsburgh, bitch";
+  }
+
+}
+$id = htmlspecialchars($_GET["id"]);
+$choice = htmlspecialchars($_GET["choice"]);
+if ($choice) {
+  vote($id, $choice);
+}
+
     $sql="SELECT name FROM MAIN WHERE id=".$id;
     $result=pg_query($db,$sql);
     $arr = pg_fetch_all($result);
@@ -21,7 +82,7 @@ function pg_connection_string_from_database_url() {
     foreach($row as $option) {
       if($counter % 2 ==0){#OPTION
           $fixedOption=htmlspecialchars($option);
-          echo "<a href='/vote.php?id=".$id."&option=".$fixedOption."'>Vote</a>";
+          echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'&choice='".$fixedOption"'>Vote</a>";
           echo '<h1>';
           echo $option; 
           echo '';
