@@ -54,7 +54,7 @@ if ($city=='Pittsburgh') {
     $result=pg_query($db,$sql);
     
     echo $voted;
-    $voted.=" ".$option
+    $voted.=" ".$option;
     $query="UPDATE USERS SET VOTED='".$voted."' WHERE IP='".$ip."'";
     $result=pg_query($db,$query);
     echo pg_last_error();
