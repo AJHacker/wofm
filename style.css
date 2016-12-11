@@ -11,7 +11,7 @@ h1{
 }
 
 a:link, a:visited {
-    /*background-color: #f44336;*/
+    background-color: #f44336;
     color: white;
     padding: 5% 30%;
     text-align: center; 
@@ -21,7 +21,7 @@ a:link, a:visited {
 
 a:hover, a:active {
     background-color: red;
-    opacity:0.2;
+    opacity:0.4;
     border-left-style: solid;
     border-color:red;
 }
