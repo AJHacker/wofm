@@ -9,8 +9,12 @@ function pg_connection_string_from_database_url() {
 
     $db = pg_connect(pg_connection_string_from_database_url());
     $id = htmlspecialchars($_GET["id"]);
+    $sql="SELECT name FROM MAIN WHERE id=".$tableNo;
+    $result=pg_query($db,$sql);
+    $arr = pg_fetch_all($result);
+    print_r("<center><h1>".$arr[0]['name']."</h1></center>");
   
-    $result = pg_query($db, "SELECT * FROM num".$id);
+    $result = pg_query($db, "SELECT * FROM num".$id . "ORDER BY VOTES DESC;");
     print "<pre>\n";
   echo '<h1>';
    while ($row = pg_fetch_row($result)) {
