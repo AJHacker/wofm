@@ -81,7 +81,6 @@ $choice = htmlspecialchars($_GET["option"]);
     print_r("<center><h1>".$arr[0]['name']."</h1></center>");
   
     $result = pg_query($db, "SELECT * FROM num".$id . " ORDER BY VOTES DESC;");
-    print "<pre>\n";
    while ($row = pg_fetch_row($result)) {
     $counter = 0;
     foreach($row as $option) {
