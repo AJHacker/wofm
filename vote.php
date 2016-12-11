@@ -27,18 +27,15 @@ if ($city=='Pittsburgh') {
   echo 'in pittsburgh<br>';
   $tableNo=htmlspecialchars($_GET["id"]);
   $option=htmlspecialchars($_GET["option"]);
-  try {
-    $voted="";
-    $query="INSERT INTO USERS VALUES ( '".$ip."', '".$voted."');";
-    $result=pg_query($db,$query);
-  } catch (Exception $e) {
+  $voted="";
+  $query="INSERT INTO USERS VALUES ( '".$ip."', '".$voted."');";
+  $result=pg_query($db,$query);
+  if (pg_last_error()) {
     echo 'user already in table<br>';
     $query="SELECT VOTED FROM USERS WHERE IP='".$ip."'";
     $result=pg_query($db,$query);
     $arr=pg_fetch_all($result);
     $voted=$arr[0]['voted'];
-
-    echo pg_last_error();
   }
   if (in_array($tableNo,explode(" ",$voted))) {
     echo 'you already voted! fuck you!';
