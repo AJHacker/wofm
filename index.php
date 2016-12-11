@@ -1,5 +1,8 @@
 <html>
-
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+  
 <center><h1>CMU Questions</h1><center>
 <?php
 $category = $_GET['category'];
