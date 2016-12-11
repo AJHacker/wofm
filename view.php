@@ -2,7 +2,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
+<center>
 <?php
 function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["DATABASE_URL"]));
@@ -103,5 +103,5 @@ $choice = htmlspecialchars($_GET["option"]);
   echo $toPrint;
   pg_close($db);
 ?>
-  
+  </center>
 </html>
