@@ -24,7 +24,7 @@ if (!$id or !$name) {
   echo $result;
      $sql ="
         CREATE TABLE num" . $id . "(
-        OPTION           TEXT    NOT NULL,
+        OPTION           TEXT    PRIMARY KEY,
         VOTES            INT     NOT NULL);";
   $ret = pg_query($db, $sql);
   echo $ret;
