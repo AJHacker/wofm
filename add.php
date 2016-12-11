@@ -21,13 +21,12 @@ if ($name and $id and $group) {
   #$query="ALTER TABLE MAIN
    # ALTER COLUMN id TEXT;";
   $result = pg_query($db, $query);
-  echo $result;
      $sql ="
         CREATE TABLE num" . $id . $group . "(
         OPTION           TEXT    PRIMARY KEY,
         VOTES            INT     NOT NULL);";
   $ret = pg_query($db, $sql);
-  echo $ret;
+  echo "Question Added";
   if (!$result) {
     echo pg_last_error();
   }
