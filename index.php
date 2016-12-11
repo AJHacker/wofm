@@ -23,8 +23,7 @@ if($category)
                           print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
                         } else {
                          while ($row = pg_fetch_row($result1)) { 
-                           echo substr($row[0],-4,2);
-                           if (!($row[0] == "main" or $row[0] == "users" or substr($row[0],-4,2) == $category)){
+                           if (!($row[0] == "main" or $row[0] == "users" or substr($row[0],-2) == $category)){
                              $tableNo=substr($row[0],3);
                              $sql="SELECT name FROM MAIN WHERE id=".$tableNo;
                              $result = pg_query($db, $sql);
