@@ -14,7 +14,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
     if (!pg_num_rows($result1)) {
       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
     } else {
-       pg_query($db, "TRUNCATE MAIN;");
+       pg_query($db, "TRUNCATE USERS;");
     }
 echo '<h1>Purged Users</h1>';
 pg_close($db);
