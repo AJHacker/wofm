@@ -1,6 +1,5 @@
 <html>
 
-<h1>Welcome!</h1>
 
 <?php
 # This function reads your DATABASE_URL config var and returns a connection
@@ -20,10 +19,9 @@ $db = pg_connect(pg_connection_string_from_database_url());
        pg_query($db, "DROP TABLE " . $row[0] . ";");
        }
       }
-      pg_query($db, "TRUNCATE MAIN;");
     }
-
-   pg_close($db);
+echo '<h1>Purged Users</h1>';
+pg_close($db);
 ?>
   
 </html>
