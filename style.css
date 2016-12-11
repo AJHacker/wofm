@@ -9,22 +9,18 @@ h1{
   font-size:5em;
  
 }
-a{
-  font-family: "Open Sans", Helvetica, sans-serif;
-  font-size:2em;
-  vertical-align: middle;
-  text-align: center; 
-  color: white;
-  display: inline-block;
-  width:30%;
-  height:15%;
-  text-decoration: none;
-
- 
+a {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 20px;
 }
-
-a:hover, a:active {
-   /*background-color: red;*/
-    border-left-style: solid;
-    border-color:red;
+a:hover {
+background-color: #4CAF50;
+color: white;
 }
