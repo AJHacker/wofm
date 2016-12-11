@@ -3,7 +3,6 @@
 <center><h1>CMU Questions</h1><center>
 <?php
 $category = $_GET['category'];
-echo $category;
 if($category)
 {
                       # This function reads your DATABASE_URL config var and returns a connection
