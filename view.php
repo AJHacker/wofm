@@ -16,7 +16,6 @@ function pg_connection_string_from_database_url() {
   
     $result = pg_query($db, "SELECT * FROM num".$id . " ORDER BY VOTES DESC;");
     print "<pre>\n";
-  echo '<h1>';
    while ($row = pg_fetch_row($result)) {
     $counter = 0;
     foreach($row as $option) {
@@ -24,20 +23,19 @@ function pg_connection_string_from_database_url() {
           echo "<button onclick='window.location.href="."vote.php?id=".$id."&option="."$option"."'>Vote</button>";
           echo '<h1>';
           echo $option; 
-          echo '</h1>';
+          echo '';
       }else{#VOTES
-          echo '<h1>    -    ';
+          echo '    -    ';
           echo $option; 
           echo '</h1></br>';
 
 
       }
-            $counter = $counter+1;
+           $counter = $counter+1;
 
        # echo '<h1>' . $field[0] . '   -    ' . $field[1] . '</h1></br>';
     }
 }
-  echo '</h1>';
 //     print $result1;
 //     if (!pg_num_rows($result1)) {
 //       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
