@@ -12,14 +12,21 @@ function pg_connection_string_from_database_url() {
   
     $result = pg_query($db, "SELECT * FROM num".$id);
     print "<pre>\n";
-
+  echo '<h1>';
    while ($row = pg_fetch_row($result)) {
+     $counter = 0;
     foreach($row as $option) {
       echo $option;
-      echo '</br>';
+      $counter = $counter+1;
+      if($counter % 2 ==0){
+          echo '</h1></br><h1>';
+      }else{
+          echo '   -    ';
+      }
        # echo '<h1>' . $field[0] . '   -    ' . $field[1] . '</h1></br>';
     }
 }
+  echo '</h1>';
 //     print $result1;
 //     if (!pg_num_rows($result1)) {
 //       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
