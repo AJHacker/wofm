@@ -6,7 +6,7 @@ body{
 h1{
   color:#f3f3f3;
   font-family: "Open Sans", Helvetica, sans-serif;
-  font-size:150%;
+  font-size:300%;
  
 }
 a {
@@ -20,7 +20,8 @@ a {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 100%;
+    font-size: 170%;
+    word-wrap:normal;
 }
 a:hover {
 background-color: #f3f3f3;
