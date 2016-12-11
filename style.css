@@ -5,8 +5,9 @@ body{
 
 h1{
   background-color: powderblue;
+  color:#ffffff;
   font-family: "Open Sans", Helvetica, sans-serif;
-  font-size:130%;
+  font-size:10em;
  
 }
 h2{
