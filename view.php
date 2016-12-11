@@ -10,7 +10,12 @@ function pg_connection_string_from_database_url() {
 $db = pg_connect(pg_connection_string_from_database_url());
   
 function vote ($tableNo, $option) {
+  function pg_connection_string_from_database_url() {
+  extract(parse_url($_ENV["DATABASE_URL"]));
+  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
+}
 
+$db = pg_connect(pg_connection_string_from_database_url());
   # user ip checking
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
       $ip = $_SERVER['HTTP_CLIENT_IP'];
