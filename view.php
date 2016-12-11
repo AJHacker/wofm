@@ -14,11 +14,9 @@ function pg_connection_string_from_database_url() {
     print "<pre>\n";
 
    while ($row = pg_fetch_array($result)) {
-    echo '<tr>';
     foreach($row as $field) {
-        echo '<td>' . htmlspecialchars($field) . '</td>';
+        echo '<h1>' . htmlspecialchars($field) . '</h1></br>';
     }
-    echo '</tr>';
 }
 //     print $result1;
 //     if (!pg_num_rows($result1)) {
