@@ -86,12 +86,12 @@ $choice = htmlspecialchars($_GET["option"]);
           $fixedOption=htmlspecialchars($option);
 //           echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'>Vote</a>";
           echo '<h2>';
-          echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'>".$option."</a>"; 
+          echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'>".$option; 
           echo '';
       }else{#VOTES
           echo '    -    ';
           echo $option; 
-          echo '</h2></br>';
+          echo '</a></h2></br>';
 
 
       }
