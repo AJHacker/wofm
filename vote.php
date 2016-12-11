@@ -37,7 +37,7 @@ if ($city=='Pittsburgh') {
     $result=pg_query($db,$query);
     $arr=pg_fetch_all($result);
     $array=$arr[0]['voted'];
-    echo pg_last_error().'\n';
+    echo pg_last_error();
   }
   if in_array($tableNo,$array) {
     echo 'you already voted! fuck you!';
@@ -47,7 +47,7 @@ if ($city=='Pittsburgh') {
     $value = pg_fetch_all($result);
     $votes=$value[0]['votes'];
     ++$votes;
-    echo pg_last_error().'\n';
+    echo pg_last_error();
     echo $votes;
     $sql="UPDATE num".$tableNo." SET VOTES=".$votes." WHERE OPTION='".$option."'";
     $result=pg_query($db,$sql);
@@ -55,9 +55,9 @@ if ($city=='Pittsburgh') {
     array_push($array, $tableNo);
     $query="UPDATE USERS SET VOTED=".$array." WHERE IP='".$ip."'";
     $result=pg_query($db,$query);
-    echo pg_last_error().'\n';
+    echo pg_last_error();
   }
-  echo pg_last_error().'\n';
+  echo pg_last_error();
 } else {
   echo "fuck you. you ain't in pittsburgh, bitch";
 }
