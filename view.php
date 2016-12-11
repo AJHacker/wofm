@@ -97,6 +97,7 @@ $choice = htmlspecialchars($_GET["option"]);
 
     }
 }
+  echo pg_last_error();
 
    pg_close($db);
 ?>
