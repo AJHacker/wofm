@@ -24,7 +24,7 @@ if($category)
                          while ($row = pg_fetch_row($result1)) { 
                            if (!($row[0] == "main" or $row[0] == "users" or substr($row[0],-2) != $category)){
                              $tableNo=substr($row[0],3);
-                             $sql="SELECT name FROM MAIN WHERE id=".$tableNo;
+                             $sql="SELECT name FROM MAIN WHERE id=".$tableNo." ORDER BY ID";
                              $result = pg_query($db, $sql);
                              $arr = pg_fetch_all($result);
                              print_r("<center><h1><a href='/view.php?id=".$tableNo."'>".$arr[0]['name']."</a></h1></center>");
