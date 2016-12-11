@@ -12,19 +12,15 @@ h1{
 a{
   font-family: "Open Sans", Helvetica, sans-serif;
   font-size:2em;
+  vertical-align: middle;
+  text-align: center; 
   color: white;
+  display: inline-block;
   width:30%;
   height:15%;
+  text-decoration: none;
+
  
-}
-a:link, a:visited {
-    /*background-color: #f44336;*/
-    
-    
- 
-    text-align: center; 
-    text-decoration: none;
-    display: inline-block;
 }
 
 a:hover, a:active {
