@@ -1,3 +1,4 @@
+<html>
 <?php
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. Put this in your app.
@@ -17,7 +18,8 @@ $votes=$value[0]['votes'];
 ++$votes;
 $sql="UPDATE num".$tableNo." 
     SET VOTES=".$votes.",
-    WHERE OPTION='.$option."';";
+    WHERE OPTION='".$option."';";
+$result=pg_query($db,$sql);
 
 
 pg_close($db);
