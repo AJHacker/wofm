@@ -1,9 +1,13 @@
+body{
+ background:linear-gradient(141deg,#0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); 
+  
+}
+
 h1{
   background-color: powderblue;
   font-family: "Open Sans", Helvetica, sans-serif;
   font-size:130%;
-  margin-top: 5%;
-  margin-bottom: 10%;
+ 
 }
 h2{
   
