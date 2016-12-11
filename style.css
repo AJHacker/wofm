@@ -21,7 +21,7 @@ a {
     text-decoration: none;
     display: inline-block;
     font-size: 170%;
-    word-wrap:normal;
+    overflow-wrap:break-word;
 }
 a:hover {
 background-color: #f3f3f3;
