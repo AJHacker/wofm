@@ -66,10 +66,7 @@ function vote ($tableNo, $option) {
 
 }
 $id = htmlspecialchars($_GET["id"]);
-$choice = htmlspecialchars($_GET["option"]);
-if ($choice) {
-  vote($id, $choice);
-}
+
 
     $sql="SELECT name FROM MAIN WHERE id=".$id;
     $result=pg_query($db,$sql);
@@ -83,7 +80,7 @@ if ($choice) {
     foreach($row as $option) {
       if($counter % 2 ==0){#OPTION
           $fixedOption=htmlspecialchars($option);
-          echo "<a href='/view.php?id=".$id."&option=".$fixedOption.'>Vote</a>";
+          echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'>Vote</a>";
           echo '<h1>';
           echo $option; 
           echo '';
@@ -96,26 +93,13 @@ if ($choice) {
       }
            $counter = $counter+1;
 
-       # echo '<h1>' . $field[0] . '   -    ' . $field[1] . '</h1></br>';
     }
 }
-//     print $result1;
-//     if (!pg_num_rows($result1)) {
-//       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
-//     } else {
-//      while ($row = pg_fetch_row($result1)) { 
-//            print_r("<center><h2>".$row[0]['option']." - ".$row[0]['votes']."</h2></center>");
-//        }
-//      }
-    
 
-  
-  
-//    echo '<h1>MAIN:</h1>';
-
-//    $result = pg_query($db, "SELECT ID, NAME FROM MAIN ORDER BY ID DESC LIMIT 1000");
-//    $arr = pg_fetch_all($result);
-//    print_r(array_values($arr));
+$choice = htmlspecialchars($_GET["option"]);
+  if ($choice) {
+    vote($id, $choice);
+  }
    pg_close($db);
 ?>
   
