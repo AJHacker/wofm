@@ -10,7 +10,13 @@ function pg_connection_string_from_database_url() {
 $db = pg_connect(pg_connection_string_from_database_url());
 
 # user ip checking
-$ip=$_SERVER['REMOTE_ADDR'];
+if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+    $ip = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+} else {
+    $ip = $_SERVER['REMOTE_ADDR'];
+}
 $geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
 $country = $geo["geoplugin_countryName"];
 $city = $geo["geoplugin_city"];
