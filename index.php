@@ -1,6 +1,6 @@
 <html>
 
-<center><h1>CMU Questions:</h1><center>
+<center><h1>CMU Questions</h1><center>
 
 <?php
 # This function reads your DATABASE_URL config var and returns a connection
@@ -29,7 +29,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
        }
      }
     }
-
+ echo pg_last_error();
   
   
 //    echo '<h1>MAIN:</h1>';
