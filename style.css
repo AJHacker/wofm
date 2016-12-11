@@ -1,6 +1,6 @@
 body{
  background:linear-gradient(141deg,#0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%); 
-  
+ max-width:100%;
 }
 
 h1{
@@ -21,7 +21,7 @@ a {
     text-decoration: none;
     display: inline-block;
     font-size: 170%;
-    max-width:100%
+    max-width:100%;
 }
 a:hover {
 background-color: #f3f3f3;
