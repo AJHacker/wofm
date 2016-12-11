@@ -13,12 +13,13 @@ h1{
 a:link, a:visited {
     /*background-color: #f44336;*/
     color: white;
-    padding: 10% 20%;
+    padding: 5% 30%;
     text-align: center; 
     text-decoration: none;
     display: inline-block;
 }
 
 a:hover, a:active {
-    background-color: #0fb8ad;
+    border-left-style: solid;
+    border-color:red;
 }
