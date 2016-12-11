@@ -20,7 +20,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
     } else {
      while ($row = pg_fetch_row($result1)) { 
-       if !($row[0] == "main" or $row[0] == "users"){
+       if (!($row[0] == "main" or $row[0] == "users")){
          $tableNo=substr($row[0],3);
          $sql="SELECT name FROM MAIN WHERE id=".$tableNo;
          $result = pg_query($db, $sql);
