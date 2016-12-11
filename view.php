@@ -13,9 +13,9 @@ function pg_connection_string_from_database_url() {
     $result = pg_query($db, "SELECT * FROM num".$id);
     print "<pre>\n";
 
-   while ($row = pg_fetch_array($result)) {
+   while ($row = pg_fetch_all($result)) {
     foreach($row as $field) {
-        echo '<h1>' . htmlspecialchars($field) . '</h1></br>';
+        echo '<h1>' . $row[0] . '   -    ' . $row[1] . '</h1></br>';
     }
 }
 //     print $result1;
