@@ -24,21 +24,23 @@ if ($id) {
     $sql="DROP TABLE num".$id;
     $result=pg_query($db,$sql);
   }
-  echo "Removed";
+
   pg_close($db);
 }
-  if(isset($_POST)) {
-  ?>
+if(isset($_POST)) {
+?>
 
-    <form method="POST" action="remove.php">
-    ID <input type="text" name="id"></input><br/>
-    Option <input type="text" name="option"></input><br/>
-    <input type="submit" name="submit" value="Remove Option"></input>
-    </form>
+  <form method="POST" action="remove.php">
+  ID <input type="text" name="id"></input><br/>
+  Option <input type="text" name="option"></input><br/>
+  <input type="submit" name="submit" value="Remove Option"></input>
+  </form>
 
-  <?php
-  }
-
+<?php
+}
+if ($id) {
+  echo "<h2>Removed</h2>";
+}
 
 ?>
 </html>
