@@ -82,7 +82,7 @@ if ($choice) {
     foreach($row as $option) {
       if($counter % 2 ==0){#OPTION
           $fixedOption=htmlspecialchars($option);
-          echo "<a href='/view.php?id=".$id."&option=".$fixedOption."'&choice='".$fixedOption"'>Vote</a>";
+          echo "<a href='/view.php?id=".$id."&option='".$fixedOption."'&choice='".$fixedOption"'>Vote</a>";
           echo '<h1>';
           echo $option; 
           echo '';
