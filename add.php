@@ -26,7 +26,6 @@ if ($name and $id and $group) {
         OPTION           TEXT    PRIMARY KEY,
         VOTES            INT     NOT NULL);";
   $ret = pg_query($db, $sql);
-  echo "Question Added";
   if (!$result) {
     echo pg_last_error();
   }
@@ -34,24 +33,26 @@ if ($name and $id and $group) {
     echo pg_last_error();
   }
    pg_close($db);
-} else {
-  if(isset($_POST))
-  {?>
+}
+if(isset($_POST))
+{?>
 
-    <form method="POST" action="add.php">
-    Question <input type="text" name="question"></input><br/>
-    ID <input type="text" name="id"></input><br/>
-    Group <input type="text" name="group"></input><br/>
-    <input type="submit" name="submit" value="Add"></input>
-    </form>
+  <form method="POST" action="add.php">
+  Question <input type="text" name="question"></input><br/>
+  ID <input type="text" name="id"></input><br/>
+  Group <input type="text" name="group"></input><br/>
+  <input type="submit" name="submit" value="Add"></input>
+  </form>
 
-    <p>Group Numbers</p>
-    <ul>
-      <li>00 - Food</li>
-      <li>01 - Places</li>
-      <li>02 - People</li>
-    </ul>
-  <?}
+  <p>Group Numbers</p>
+  <ul>
+    <li>00 - Food</li>
+    <li>01 - Places</li>
+    <li>02 - People</li>
+  </ul>
+<?}
+if ($id) {
+  echo "<h2>Question Added</h2>";
 }
   
 ?>
