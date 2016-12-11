@@ -10,6 +10,7 @@ function pg_connection_string_from_database_url() {
 $db = pg_connect(pg_connection_string_from_database_url());
   
 function vote ($tableNo, $option) {
+  $option="'".$option."'";
 
   # user ip checking
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
