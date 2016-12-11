@@ -3,27 +3,41 @@
 <h1>Add Options!</h1>
 
 <?php
-# This function reads your DATABASE_URL config var and returns a connection
-# string suitable for pg_connect. Put this in your app.
-function pg_connection_string_from_database_url() {
-  extract(parse_url($_ENV["DATABASE_URL"]));
-  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
-}
-# Here we establish the connection. Yes, that's all.
-$db = pg_connect(pg_connection_string_from_database_url());
+$option = $_POST['option'];
+$id=$_POST['id'];
 
-$id=htmlspecialchars($_GET["id"]);
-$option=htmlspecialchars($_GET["option"]);
-if (!$id or !$option) {
-  echo "Enter an option and id";
+if ($id and $option) {
+  # This function reads your DATABASE_URL config var and returns a connection
+  # string suitable for pg_connect. Put this in your app.
+  function pg_connection_string_from_database_url() {
+    extract(parse_url($_ENV["DATABASE_URL"]));
+    return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
+  }
+  # Here we establish the connection. Yes, that's all.
+  $db = pg_connect(pg_connection_string_from_database_url());
+
+  if (!$id or !$option) {
+    echo "Enter an option and id";
+  } else {
+    $query="INSERT INTO num".$id. " VALUES ( '".$option."', 0);";
+    $result=pg_query($db,$query);
+    echo pg_last_error();
+    echo $option." added";
+  }
+
+  pg_close($db);
 } else {
-  $query="INSERT INTO num".$id. " VALUES ( '".$option."', 0);";
-  $result=pg_query($db,$query);
-  echo pg_last_error();
-  echo $option." added";
-}
+  if(isset($_POST))
+  {?>
 
-pg_close($db);
+    <form method="POST" action="addOption.php">
+    Option <input type="text" name="option"></input><br/>
+    ID <input type="text" name="id"></input><br/>
+    <input type="submit" name="submit" value="Add Option"></input>
+    </form>
+
+  <?}
+}
   
   
 ?>
