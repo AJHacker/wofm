@@ -37,7 +37,7 @@ if ($city=='Pittsburgh') {
     $result=pg_query($db,$query);
     $arr=pg_fetch_all($result);
     $array=$arr[0]['voted'];
-    echo $array;
+
     echo pg_last_error();
   }
   if (in_array($tableNo,$array)) {
@@ -53,6 +53,7 @@ if ($city=='Pittsburgh') {
     $sql="UPDATE num".$tableNo." SET VOTES=".$votes." WHERE OPTION='".$option."'";
     $result=pg_query($db,$sql);
     
+    echo $array;
     array_push($array, $tableNo);
     $query="UPDATE USERS SET VOTED=".$array." WHERE IP='".$ip."'";
     $result=pg_query($db,$query);
