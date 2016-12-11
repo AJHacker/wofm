@@ -18,15 +18,22 @@ function pg_connection_string_from_database_url() {
     print "<pre>\n";
   echo '<h1>';
    while ($row = pg_fetch_row($result)) {
-     $counter = 0;
+    $counter = 0;
     foreach($row as $option) {
-      echo $option;
-      $counter = $counter+1;
-      if($counter % 2 ==0){
-          echo '</h1></br><h1>';
-      }else{
-          echo '   -    ';
+      if($counter % 2 ==0){#OPTION
+          echo "<button onclick='window.location.href="."vote.php?id=".$id."&option="."$option"."'>Vote</button>";
+          echo '<h1>';
+          echo $option; 
+          echo '</h1>';
+      }else{#VOTES
+          echo '<h1>    -    ';
+          echo $option; 
+          echo '</h1></br>';
+
+
       }
+            $counter = $counter+1;
+
        # echo '<h1>' . $field[0] . '   -    ' . $field[1] . '</h1></br>';
     }
 }
