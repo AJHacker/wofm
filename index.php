@@ -22,7 +22,6 @@ if($category)
 
 
                         $result1 = pg_query($db, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public' ORDER BY RELNAME");
-                        print "<pre>\n";
                         if (!pg_num_rows($result1)) {
                           print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
                         } else {
