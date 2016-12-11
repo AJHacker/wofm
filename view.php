@@ -8,7 +8,7 @@ function pg_connection_string_from_database_url() {
 }
 
 $db = pg_connect(pg_connection_string_from_database_url());
-$toPrint=""
+$toPrint="";
   
 function vote ($tableNo, $option) {
   global $db, $toPrint;
@@ -27,7 +27,7 @@ function vote ($tableNo, $option) {
 
   # vote adding
   if ($city=='Pittsburgh') {  
-    echo 'in pittsburgh<br>';
+    $toPrint.= 'in pittsburgh<br>';
     $tableNo=htmlspecialchars($_GET["id"]);
     $option=htmlspecialchars($_GET["option"]);
     $voted="";
@@ -99,7 +99,7 @@ $choice = htmlspecialchars($_GET["option"]);
 }
   echo pg_last_error();
   echo $toPrint;
-   pg_close($db);
+  pg_close($db);
 ?>
   
 </html>
