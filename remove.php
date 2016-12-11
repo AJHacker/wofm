@@ -1,5 +1,7 @@
 <html>
-
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <h1>Remove Questions or Options</h1>
   <h2>Enter a Question ID to remove a question</h2>
   <h2>Enter a Question ID and Option to remove a specific option</h2>
