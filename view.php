@@ -66,7 +66,7 @@ function vote ($tableNo, $option) {
 
 }
 $id = htmlspecialchars($_GET["id"]);
-$choice = htmlspecialchars($_GET["choice"]);
+$choice = htmlspecialchars($_GET["option"]);
 if ($choice) {
   vote($id, $choice);
 }
@@ -83,7 +83,7 @@ if ($choice) {
     foreach($row as $option) {
       if($counter % 2 ==0){#OPTION
           $fixedOption=htmlspecialchars($option);
-          echo "<a href='/view.php?id=".$id."&option=".$fixedOption."&choice=".$fixedOption."'>Vote</a>";
+          echo "<a href='/view.php?id=".$id."&option=".$fixedOption.'>Vote</a>";
           echo '<h1>';
           echo $option; 
           echo '';
