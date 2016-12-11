@@ -14,8 +14,8 @@ $main="CREATE TABLE MAIN (
   NAME TEXT);";
 $result=pg_query($db,$main);
 $users="CREATE TABLE USERS (
-  OPTION TEXT PRIMARY KEY,
-  VOTES INT);";
+  IP TEXT PRIMARY KEY,
+  VOTED TEXT);";
 $result=pg_query($db,$users);
 echo pg_last_error();
 
