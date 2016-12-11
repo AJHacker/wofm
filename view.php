@@ -10,7 +10,6 @@ function pg_connection_string_from_database_url() {
 $db = pg_connect(pg_connection_string_from_database_url());
   
 function vote ($tableNo, $option) {
-  $option="'".$option."'";
 
   # user ip checking
   if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -66,7 +65,10 @@ function vote ($tableNo, $option) {
 
 }
 $id = htmlspecialchars($_GET["id"]);
-
+$choice = htmlspecialchars($_GET["option"]);
+  if ($choice) {
+    vote($id, $choice);
+  }
 
     $sql="SELECT name FROM MAIN WHERE id=".$id;
     $result=pg_query($db,$sql);
@@ -96,10 +98,6 @@ $id = htmlspecialchars($_GET["id"]);
     }
 }
 
-$choice = htmlspecialchars($_GET["option"]);
-  if ($choice) {
-    vote($id, $choice);
-  }
    pg_close($db);
 ?>
   
