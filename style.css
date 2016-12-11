@@ -23,7 +23,6 @@ a:link, a:visited {
 
 a:hover, a:active {
     background-color: red;
-    opacity:0.2;
     border-left-style: solid;
     border-color:red;
 }
