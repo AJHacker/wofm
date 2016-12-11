@@ -20,7 +20,7 @@ function pg_connection_string_from_database_url() {
     $counter = 0;
     foreach($row as $option) {
       if($counter % 2 ==0){#OPTION
-          $fixedOption=htmlspecialchars($option)
+          $fixedOption=htmlspecialchars($option);
           echo "<a href=/vote.php?id=".$id."&option=".$fixedOption.">Vote</a>";
           echo '<h1>';
           echo $option; 
