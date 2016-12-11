@@ -26,7 +26,8 @@ if ($id) {
   }
   pg_close($db);
 } else {
-  if(isset($_POST)) {?>
+  if(isset($_POST)) {
+  ?>
 
     <form method="POST" action="remove.php">
     ID <input type="text" name="id"></input><br/>
@@ -34,7 +35,8 @@ if ($id) {
     <input type="submit" name="submit" value="Add Option"></input>
     </form>
 
-  <?php}
+  <?php
+  }
 }
 
 ?>
