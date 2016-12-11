@@ -8,6 +8,17 @@ function pg_connection_string_from_database_url() {
 # Here we establish the connection. Yes, that's all.
 $db = pg_connect(pg_connection_string_from_database_url());
 
+$tableNo=htmlspecialchars($_GET["id"]);
+$option=htmlspecialchars($_GET["option"]);
+$sql = "SELECT VOTES FROM num".$tableNo." WHERE OPTION='".$option."';";
+$result = pg_query($sql);
+$value = pg_fetch_all($result);
+$votes=$value[0]['votes'];
+++$votes;
+$sql="UPDATE num".$tableNo." 
+    SET VOTES=".$votes.",
+    WHERE OPTION='.$option."';";
+
 
 pg_close($db);
   
