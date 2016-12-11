@@ -17,7 +17,7 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 } else {
     $ip = $_SERVER['REMOTE_ADDR'];
 }
-$geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$user_ip"));
+$geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=$ip"));
 $country = $geo["geoplugin_countryName"];
 $city = $geo["geoplugin_city"];
 echo $ip;
