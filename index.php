@@ -29,7 +29,6 @@ $db = pg_connect(pg_connection_string_from_database_url());
        }
      }
     }
- echo pg_last_error();
   
   
 //    echo '<h1>MAIN:</h1>';
