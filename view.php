@@ -1,5 +1,7 @@
 <html>
-
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
 <?php
 function pg_connection_string_from_database_url() {
