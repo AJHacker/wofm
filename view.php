@@ -12,7 +12,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
   
     $result1 = pg_query($db, "SELECT option,votes FROM num".$id);
     print "<pre>\n";
-    print $result1
+    print $result1;
     if (!pg_num_rows($result1)) {
       print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
     } else {
