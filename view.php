@@ -1,8 +1,11 @@
 <html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <center>
+  
 <?php
 function pg_connection_string_from_database_url() {
   extract(parse_url($_ENV["DATABASE_URL"]));
