@@ -17,7 +17,7 @@ $option=htmlspecialchars($_GET["option"]);
 if (!$id or !$option) {
   echo "Enter an option and id";
 } else {
-  $query="INSERT INTO num".$id. " VALUES(".$option.", 0);";
+  $query="INSERT INTO num".$id. " VALUES ( ".$option.", 0);";
   $result=pg_query($db,$query);
   echo pg_last_error();
   echo $option." added";
