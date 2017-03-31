@@ -1,3 +1,3 @@
 # Wofm
-wofm.herokuapp.com
+http://wofm.herokuapp.com
 Simple Polling Application
