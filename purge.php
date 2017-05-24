@@ -29,7 +29,7 @@ $db = pg_connect(pg_connection_string_from_database_url());
          echo $row[0];
        }
       }
-      pg_query($db, "TRUNCATE MAIN;");
+      pg_query($db, "TRUNCATE TABLE MAIN;");
     }
    #$result = pg_query($db, "TRUNCATE MAIN;");
  #  $arr = pg_fetch_all($result);
